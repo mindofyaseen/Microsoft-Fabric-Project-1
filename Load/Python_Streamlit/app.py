@@ -9,11 +9,17 @@ st.set_page_config(page_title="Fabric Sales Analytics", layout="wide")
 # Connection Function
 def get_conn():
     f = st.secrets["fabric"]
+    driver = '{ODBC Driver 17 for SQL Server}'
+    
     conn_str = (
-        f'DRIVER={{ODBC Driver 18 for SQL Server}};'
-        f'SERVER={f["server"]};DATABASE={f["database"]};'
-        f'UID={f["username"]};PWD={f["password"]};'
-        f'Authentication=ActiveDirectoryPassword;Encrypt=yes;TrustServerCertificate=no;'
+        f'DRIVER={driver};'
+        f'SERVER={f["server"]};'
+        f'DATABASE={f["database"]};'
+        f'UID={f["username"]};'
+        f'PWD={f["password"]};'
+        f'Authentication=ActiveDirectoryPassword;'
+        f'Encrypt=yes;'
+        f'TrustServerCertificate=no;'
     )
     return pyodbc.connect(conn_str)
 
