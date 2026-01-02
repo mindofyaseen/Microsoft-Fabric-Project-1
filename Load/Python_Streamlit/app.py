@@ -2,14 +2,21 @@ import streamlit as st
 import pyodbc
 import pandas as pd
 import plotly.express as px
+import platform
 
 # Page Layout
 st.set_page_config(page_title="Fabric Sales Analytics", layout="wide")
 
-# Connection Function
+# Connection Function with OS detection
 def get_conn():
     f = st.secrets["fabric"]
-    driver = '{ODBC Driver 17 for SQL Server}'
+    
+    # OS detect karke sahi driver select karna
+    if platform.system() == "Windows":
+        driver = '{ODBC Driver 18 for SQL Server}'
+    else:
+        # Streamlit Cloud (Linux) ke liye Driver 17 lazmi hai
+        driver = '{ODBC Driver 17 for SQL Server}'
     
     conn_str = (
         f'DRIVER={driver};'
@@ -32,9 +39,7 @@ st.title("📊 Fabric Sales Executive Dashboard")
 st.markdown("---")
 
 try:
-    # 1. Corrected Query based on your schema export
-    # TerritoryKey in Fact joins with SalesTerritoryKey in Dim_Territory
-    # Revenue is calculated as OrderQuantity * ProductPrice
+    # 1. Corrected Query
     query = """
     SELECT 
         f.OrderNumber,
@@ -92,10 +97,6 @@ try:
     
     fig3 = px.line(trend_df, x='OrderMonth', y='SalesAmount', color='OrderYear', markers=True, template="plotly_dark")
     st.plotly_chart(fig3, use_container_width=True)
-
-    # 5. Data Preview
-    with st.expander("🔍 View Processed Data"):
-        st.dataframe(df.head(100), use_container_width=True)
 
 except Exception as e:
     st.error(f"Error: {e}")
