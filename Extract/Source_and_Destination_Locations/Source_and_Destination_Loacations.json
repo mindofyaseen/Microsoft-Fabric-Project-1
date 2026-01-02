@@ -1,0 +1,47 @@
+[
+    {
+        "p_rel_url" : "mindofyaseen/Microsoft-Fabric/refs/heads/main/AdventureWorks_Product_Categories.csv",
+        "p_sink_folder" : "Dumped Raw Data",
+        "p_sink_file" : "AdventureWorks_Product_Categories.csv"
+    },
+    {
+        "p_rel_url" : "mindofyaseen/Microsoft-Fabric/refs/heads/main/AdventureWorks_Calendar.csv",
+        "p_sink_folder" : "Dumped Raw Data",
+        "p_sink_file" : "AdventureWorks_Calendar.csv"
+    },
+    {
+        "p_rel_url" : "mindofyaseen/Microsoft-Fabric/refs/heads/main/AdventureWorks_Customers.csv",
+        "p_sink_folder" : "Dumped Raw Data",
+        "p_sink_file" : "AdventureWorks_Customers.csv"
+    },
+    {
+        "p_rel_url" : "mindofyaseen/Microsoft-Fabric/refs/heads/main/AdventureWorks_Product_Subcategories.csv",
+        "p_sink_folder" : "Dumped Raw Data",
+        "p_sink_file" : "AdventureWorks_Product_Subcategories.csv"
+    },
+    {
+        "p_rel_url" : "mindofyaseen/Microsoft-Fabric/refs/heads/main/AdventureWorks_Products.csv",
+        "p_sink_folder" : "Dumped Raw Data",
+        "p_sink_file" : "AdventureWorks_Products.csv"
+    },
+    {
+        "p_rel_url" : "mindofyaseen/Microsoft-Fabric/refs/heads/main/AdventureWorks_Sales_2016.csv",
+        "p_sink_folder" : "Dumped Raw Data",
+        "p_sink_file" : "AdventureWorks_Sales_2016.cvsv"
+    },
+    {
+        "p_rel_url" : "mindofyaseen/Microsoft-Fabric/refs/heads/main/AdventureWorks_Sales_2017.csv",
+        "p_sink_folder" : "Dumped Raw Data",
+        "p_sink_file" : "AdventureWorks_Sales_2017.csv"
+    },
+    {
+        "p_rel_url" : "mindofyaseen/Microsoft-Fabric/refs/heads/main/AdventureWorks_Territories.csv",
+        "p_sink_folder" : "Dumped Raw Data",
+        "p_sink_file" : "AdventureWorks_Territories.csv"
+    },
+    {
+        "p_rel_url": "mindofyaseen/Microsoft-Fabric/refs/heads/main/AdventureWorks_Returns.csv",
+        "p_sink_folder":"Dumped Raw Data",
+        "p_sink_file":"AdventureWorks_Returns.csv"
+    }
+]
