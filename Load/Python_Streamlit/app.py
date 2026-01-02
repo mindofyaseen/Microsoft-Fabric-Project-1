@@ -7,34 +7,20 @@ st.set_page_config(page_title="Fabric Sales Analytics", layout="wide")
 
 def get_conn():
     f = st.secrets["fabric"]
+    # Linux/Streamlit Cloud ke liye Driver 17
+    driver = '{ODBC Driver 17 for SQL Server}'
     
-    # List of drivers to try
-    drivers = [
-        '{ODBC Driver 17 for SQL Server}',
-        '{ODBC Driver 18 for SQL Server}',
-        '{FreeTDS}'
-    ]
-    
-    last_error = None
-    for driver in drivers:
-        try:
-            conn_str = (
-                f'DRIVER={driver};'
-                f'SERVER={f["server"]};'
-                f'DATABASE={f["database"]};'
-                f'UID={f["username"]};'
-                f'PWD={f["password"]};'
-                f'Authentication=ActiveDirectoryPassword;'
-                f'Encrypt=yes;'
-                f'TrustServerCertificate=no;'
-            )
-            return pyodbc.connect(conn_str)
-        except Exception as e:
-            last_error = e
-            continue
-    
-    st.error(f"Could not connect using any driver. Last error: {last_error}")
-    return None
+    conn_str = (
+        f'DRIVER={driver};'
+        f'SERVER={f["server"]};'
+        f'DATABASE={f["database"]};'
+        f'UID={f["username"]};'
+        f'PWD={f["password"]};'
+        f'Authentication=ActiveDirectoryPassword;'
+        f'Encrypt=yes;'
+        f'TrustServerCertificate=no;'
+    )
+    return pyodbc.connect(conn_str)
 
 @st.cache_data
 def run_query(query):
